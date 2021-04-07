@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+
+function httpGet(theUrl)
+{
+    console.log('hi');
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", 'https://jobs.github.com/positions.json?search=node' , false ); // false for synchronous request
+    xmlHttp.setRequestHeader('Access-Control-Allow-Origin','http://localhost:3000');
+    xmlHttp.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+    xmlHttp.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    xmlHttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+    xmlHttp.send();
+    console.log(xmlHttp.responseText)
+}
+
+httpGet()
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
